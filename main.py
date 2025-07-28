@@ -7,5 +7,10 @@ app = FastAPI(
     version="1.0.0"
 )
 
+@app.get("/")
+def health_check():
+    return {"status": "OK", "message": "FastAPI OCR Proxy is running!"}
+
+
 # Include the OCR Proxy router
 app.include_router(ocr_proxy.router)
